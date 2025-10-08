@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+<head> 
+	<meta charset="UTF-g"> 
+	<title>CRRAE-UMOA</title> 
+	<style> 
+		body { font-family: sans-serif; margin: 2em; } 
+		nav { background: #f4f4f4; padding: 1em; margin-bottom: 1em; } 
+		nav a { margin-right: 15px; } 
+		.container { max-width: 960px; margin: auto; } 
+		.user-info { float: right; } 
+	</style> 
+</head> 
+<body> 
+	<div class="container"> 
+		<nav> 
+			<a href="{% url 'gestionapp:adherent_list' %}">Accueil - Liste des Adherents</a> 
+			<div class="user-info"> 
+				{% if user.is_authenticated %} 
+					Bonjour, {{ user.username }} | <a href="{% url 'logout' %}">Deconnexion</a> 
+				{% else %} 
+					<a href="{% url 'login' %}">Connexion</a> 
+				{% endif %} 
+			</div> 
+		</nav> 
+		<h1>{% block title %}Portail de Gestion{% endblock %}</h1> 
+		{% block content %} 
+		{% endblock %} 
+	</div> 
+</body>
+</html>
