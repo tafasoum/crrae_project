@@ -1,1 +1,1 @@
-# django_crrae
+# crrae_project
