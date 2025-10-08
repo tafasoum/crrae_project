@@ -23,7 +23,7 @@ def adherent_create(request):
         form = AdherentForm(request.POST)
         if form.is_valid():
             adherent = form.save()
-            return redirect('gestion:adherent_detail', pk=adherent.pk)
+            return redirect('gestionapp:adherent_detail', pk=adherent.pk)
     else:
         form = AdherentForm()
     return render(request, 'gestion/adherent.html', {'form': form})
